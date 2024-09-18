@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <h2>Lista de Eventos</h2>
+  
+    <div class="d-flex justify-content-end mb-3">
+      <a class="btn btn-primary" [routerLink]="['/eventos/nuevo']">Nuevo Evento</a>
+    </div>
+  
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Fecha</th>
+          <th>Ubicación</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let evento of listaEventos">
+          <td>{{ evento.eventoId }}</td>
+          <td>{{ evento.nombre }}</td>
+          <td>{{ evento.fecha }}</td>
+          <td>{{ evento.ubicacion }}</td>
+          <td>{{ evento.descripcion }}</td>
+          <td>
+            <a class="btn btn-warning btn-sm" [routerLink]="['/eventos', evento.eventoId]">
+              Editar
+            </a>
+            <button class="btn btn-danger btn-sm" (click)="eliminar(evento.eventoId)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

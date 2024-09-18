@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <h2>{{ titulo }}</h2>
+  
+    <form [formGroup]="frm_Evento" (ngSubmit)="guardar()">
+      <div class="form-group mb-3">
+        <label for="nombre">Nombre del Evento</label>
+        <input id="nombre" formControlName="nombre" class="form-control" type="text" />
+        <div *ngIf="frm_Evento.get('nombre').invalid && frm_Evento.get('nombre').touched" class="text-danger">
+          El nombre es requerido.
+        </div>
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="fecha">Fecha</label>
+        <input id="fecha" formControlName="fecha" class="form-control" type="date" />
+        <div *ngIf="frm_Evento.get('fecha').invalid && frm_Evento.get('fecha').touched" class="text-danger">
+          La fecha es requerida.
+        </div>
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="ubicacion">Ubicación</label>
+        <input id="ubicacion" formControlName="ubicacion" class="form-control" type="text" />
+        <div *ngIf="frm_Evento.get('ubicacion').invalid && frm_Evento.get('ubicacion').touched" class="text-danger">
+          La ubicación es requerida.
+        </div>
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+        <div *ngIf="frm_Evento.get('descripcion').invalid && frm_Evento.get('descripcion').touched" class="text-danger">
+          La descripción es requerida.
+        </div>
+      </div>
+  
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success" [disabled]="frm_Evento.invalid">Guardar</button>
+        <a class="btn btn-secondary ms-2" [routerLink]="['/eventos']">Cancelar</a>
+      </div>
+    </form>
+  </div>
+  

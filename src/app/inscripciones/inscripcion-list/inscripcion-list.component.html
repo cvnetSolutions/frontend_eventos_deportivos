@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Lista de Inscripciones</h1>
+    <a routerLink="/inscripcion-detail">Nueva Inscripción</a>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Participante</th>
+          <th>Evento</th>
+          <th>Fecha de Inscripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inscripcion of listaInscripciones">
+          <td>{{ inscripcion.inscripcionId }}</td>
+          <td>{{ inscripcion.participanteId }}</td>
+          <td>{{ inscripcion.eventoId }}</td>
+          <td>{{ inscripcion.fechaInscripcion }}</td>
+          <td>
+            <button (click)="eliminar(inscripcion.inscripcionId)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

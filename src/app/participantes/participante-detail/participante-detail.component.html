@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <h2>{{ titulo }}</h2>
+  
+    <form [formGroup]="frm_Participante" (ngSubmit)="guardar()">
+      <div class="form-group mb-3">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" class="form-control" type="text" />
+        <div *ngIf="frm_Participante.get('nombre').invalid && frm_Participante.get('nombre').touched" class="text-danger">
+          El nombre es requerido.
+        </div>
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="apellido">Apellido</label>
+        <input id="apellido" formControlName="apellido" class="form-control" type="text" />
+        <div *ngIf="frm_Participante.get('apellido').invalid && frm_Participante.get('apellido').touched" class="text-danger">
+          El apellido es requerido.
+        </div>
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" class="form-control" type="email" />
+        <div *ngIf="frm_Participante.get('email').invalid && frm_Participante.get('email').touched" class="text-danger">
+          El email es inválido o requerido.
+        </div>
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" formControlName="telefono" class="form-control" type="text" />
+        <div *ngIf="frm_Participante.get('telefono').invalid && frm_Participante.get('telefono').touched" class="text-danger">
+          El teléfono es requerido.
+        </div>
+      </div>
+  
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success" [disabled]="frm_Participante.invalid">Guardar</button>
+        <a class="btn btn-secondary ms-2" [routerLink]="['/participantes']">Cancelar</a>
+      </div>
+    </form>
+  </div>
+  

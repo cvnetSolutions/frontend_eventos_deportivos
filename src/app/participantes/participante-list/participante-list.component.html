@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <h2>Lista de Participantes</h2>
+  
+    <div class="d-flex justify-content-end mb-3">
+      <a class="btn btn-primary" [routerLink]="['/participantes/nuevo']">Nuevo Participante</a>
+    </div>
+  
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let participante of listaParticipantes">
+          <td>{{ participante.participanteId }}</td>
+          <td>{{ participante.nombre }}</td>
+          <td>{{ participante.apellido }}</td>
+          <td>{{ participante.email }}</td>
+          <td>{{ participante.telefono }}</td>
+          <td>
+            <a class="btn btn-warning btn-sm" [routerLink]="['/participantes', participante.participanteId]">
+              Editar
+            </a>
+            <button class="btn btn-danger btn-sm" (click)="eliminar(participante.participanteId)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
